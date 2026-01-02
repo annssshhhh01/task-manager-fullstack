@@ -9,7 +9,7 @@ function App() {
   const [tasks, setTasks] = useState([]); // it is list which is storing the input from the user
 
   async function fetchdata() {
-    const res = await fetch("http://localhost:3000/tasks");
+    const res = await fetch("https://task-manager-fullstack-57cm.onrender.com/tasks");
     const data = await res.json();
     console.log(data);
     setTasks(data.tasks);
@@ -21,7 +21,7 @@ function App() {
 
 async function sendingdata(){
   if (!input.trim()) return;
-  const response=await fetch("http://localhost:3000/tasks",{
+  const response=await fetch("https://task-manager-fullstack-57cm.onrender.com/tasks",{
     method:"post",
     headers: {"Content-Type": "application/json",},
     body:JSON.stringify({title:input})
@@ -33,7 +33,7 @@ fetchdata();
 }
 
 async function updatefunction(id,newStatus){
-  await fetch(`http://localhost:3000/tasks/${id}`,{
+  await fetch(`https://task-manager-fullstack-57cm.onrender.com/tasks/${id}`,{
     method:"put",
     headers:{
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ async function updatefunction(id,newStatus){
 }
 
 async function deleteTask(id){
-  await fetch(`http://localhost:3000/tasks/${id}`,{
+  await fetch(`https://task-manager-fullstack-57cm.onrender.com/tasks/${id}`,{
     method:"delete"
   });
   fetchdata();
