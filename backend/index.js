@@ -2,7 +2,7 @@ import express from "express";
 import pool from "./db.js";
 const app=express();
 app.use(express.json());
-let port=3000;
+let port=process.env.PORT ||3000;
 
 //update
 app.put("/tasks/:id",async (req,res)=>{
